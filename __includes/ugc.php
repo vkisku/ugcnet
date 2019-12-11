@@ -1,0 +1,105 @@
+<?php 
+include('simple_html_dom.php');
+
+class ugcnet{
+	
+	private $q_html;
+	private $q_html_text;
+	private $a_html;
+	private $a_html_text;
+	private $question_link;
+	private $answer_link;
+	private $questions=array();
+	private $questions_list=array();
+	private $answers=array();
+	private $answers_list=array();
+	function __construct($question_link,$answer_link){
+		$this->question_link=$question_link;
+		$this->answer_link=$answer_link;
+		self::set_html();
+		self::set_question();
+		self::set_answer();
+	}
+	function get_link($options){
+		return ($option==0)?$this->question_link:$this->answer_link;
+	}
+	function set_html(){
+		$this->q_html = file_get_html($this->question_link);
+		$this->a_html = file_get_html($this->answer_link);
+	}
+	function get_html($option){
+		return ($option==0)?$this->q_html:$this->a_html;
+		
+	}
+	function get_choosen_option_id($options,$choosen){
+		if($choosen == 0)return 0;
+		
+		return $options[$choosen+1];
+	}
+	function get_choosen_options($choosen){
+		$status = explode('Status',$choosen);
+		
+		if (strpos($status[1], 'Answered') !== false) {
+			return substr(trim(explode('Option',$status[1])[1],' '),1,1);
+		}
+		return 0;
+	}
+	function set_question(){
+		$this->q_html_text=self::get_html(0)->plaintext;
+		$htmlX=explode('</tr>',$this->q_html_text);
+		foreach($htmlX as $htm){
+			$this->questions_list[]=explode('ID',$htm);
+		}
+		
+		foreach($this->questions_list as $que){
+			if(sizeof($que)==6){
+				$q=trim($que[1]," ");
+				$q=substr($q,1,strlen($q));
+				$q=substr($q,0,strpos($q, "Option"));
+				$choosen=self::get_choosen_option_id($que,self::get_choosen_options($que[5]));
+				$choosen=trim($choosen,' ');
+				$choosen=substr($choosen,1,strlen($choosen));
+				if (strpos($choosen, 'Option') !== false) {
+					$choosen=substr($choosen,0,strpos($choosen,'Option'));
+				}
+				
+				if (strpos($choosen, 'Status') !== false) {
+					$choosen=substr($choosen,0,strpos($choosen,'Status'));
+				}
+				
+				//$q=substr($que[1],2,strlen($que[1]));
+				$this->questions[]=array('question_id'=>$q   , 'choosen_id'=>$choosen);
+			}
+		}
+		
+		
+		
+	}
+	function get_questions(){
+		return $this->questions;
+	}
+	function set_answer(){
+		$this->a_html_text=self::get_html(1)->childNodes(1)->plaintext;
+		$htmlX=explode('Computer Science and Applications',$this->a_html_text);
+		//print_r($htmlX);
+		foreach($htmlX as $htm){
+			
+			$this->answers_list[]=preg_split('/\s+/', $htm);
+		}
+		foreach($this->answers_list as $ans){
+			if(sizeof($ans)==7){
+				$q=trim($ans[1],' ');
+				$a=trim($ans[2],' ');
+				$this->answers[]=array('question_id'=>$q   , 'answer_id'=>$a);
+			}
+			
+		}
+		
+		//echo $this->a_html_text;
+	}
+	function get_answers(){
+		return $this->answers;
+	}
+	
+}
+?>
