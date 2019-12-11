@@ -13,12 +13,17 @@ class ugcnet{
 	private $questions_list=array();
 	private $answers=array();
 	private $answers_list=array();
+	private $answerd_correctly=0;
+	private $answered_wrongly;
+	private $not_answer;
+	
 	function __construct($question_link,$answer_link){
 		$this->question_link=$question_link;
 		$this->answer_link=$answer_link;
 		self::set_html();
 		self::set_question();
 		self::set_answer();
+		self::calculate_score();
 	}
 	function get_link($options){
 		return ($option==0)?$this->question_link:$this->answer_link;
@@ -68,7 +73,8 @@ class ugcnet{
 				}
 				
 				//$q=substr($que[1],2,strlen($que[1]));
-				$this->questions[]=array('question_id'=>$q   , 'choosen_id'=>$choosen);
+			
+				$this->questions[]=array($q=>$choosen);
 			}
 		}
 		
@@ -90,7 +96,7 @@ class ugcnet{
 			if(sizeof($ans)==7){
 				$q=trim($ans[1],' ');
 				$a=trim($ans[2],' ');
-				$this->answers[]=array('question_id'=>$q   , 'answer_id'=>$a);
+				$this->answers[]=array($q=>$a);
 			}
 			
 		}
@@ -99,6 +105,24 @@ class ugcnet{
 	}
 	function get_answers(){
 		return $this->answers;
+	}
+	
+	function calculate_score(){
+		$this->answerd_correctly=0;
+		foreach($this->answers as $key=>$ans){
+			//print_r($ans);
+			
+			foreach($this->questions as $ques){
+				
+				if ($ans == $ques){
+					$this->answerd_correctly++;
+				}
+			}
+			
+		}
+	}
+	function get_score(){
+		return $this->answerd_correctly;
 	}
 	
 }

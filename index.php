@@ -33,8 +33,9 @@
 			$q_link = "https://cdn.digialm.com//per/g28/pub/2083/touchstone/AssessmentQPHTMLMode1//2083O19256/2083O19256S5D66101/15755797078177669/JH0205201461_2083O19256S5D66101E1.html";
 			$a_link = "file:///C:/Users/LENOVO/Desktop/ChallangeAnswerKey.aspx.html";
 			$ugc = new ugcnet($q_link,$a_link);
-			print_r($ugc->get_questions());
-			print_r($ugc->get_answers());
+			//print_r($ugc->get_questions());
+			//print_r($ugc->get_answers());
+			print_r($ugc->get_score());
 			
 		?>
 		
