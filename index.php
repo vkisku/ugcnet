@@ -17,25 +17,33 @@
     </head>
  
     <body>
-		<form action="" method="post">
+		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 		<div class="form-group">
 		  <label for="usr">Your Assessment Link</label>
-		  <input type="link" class="form-control" id="assessment">
+		  <input type="link" class="form-control" name="assessment" id="assessment">
 		</div>
 		<div class="form-group">
 		  <label for="pwd">Answer Key link</label>
-		  <input type="link" class="form-control" id="link">
+		  <input type="link" class="form-control" name="answer" id="link">
 		</div>
 		<button type="button" class="btn btn-default">Submit</button>
 		<div id="div"></div>
 		<?php
 			include('__includes/ugc.php');
-			$q_link = "https://cdn.digialm.com//per/g28/pub/2083/touchstone/AssessmentQPHTMLMode1//2083O19256/2083O19256S5D66101/15755797078177669/JH0205201461_2083O19256S5D66101E1.html";
-			$a_link = "file:///C:/Users/LENOVO/Desktop/ChallangeAnswerKey.aspx.html";
-			$ugc = new ugcnet($q_link,$a_link);
 			//print_r($ugc->get_questions());
 			//print_r($ugc->get_answers());
-			print_r($ugc->get_score());
+			
+			
+			if(isset($_POST['submit'])){
+					$q_link= $_POST['assessment'];
+					$a_link= $_POST['answer'];
+					$ugc = new ugcnet($q_link,$a_link);
+					print_r($ugc->get_score());
+			}
+			//$q_link = "https://cdn.digialm.com//per/g28/pub/2083/touchstone/AssessmentQPHTMLMode1//2083O19256/2083O19256S5D66101/15755797078177669/JH0205201461_2083O19256S5D66101E1.html";
+			//$a_link = "file:///C:/Users/LENOVO/Desktop/ChallangeAnswerKey.aspx.html";
+			//$ugc = new ugcnet($q_link,$a_link);
+			
 			
 		?>
 		
