@@ -59,7 +59,7 @@
 		<div class="form-group">
 			  <label for="sel1">Select Subject:</label>
 			  <select required class="form-control" name="answer" id="sel1">
-				<option value="">---------------Select Subject--------------------</option>
+				<option value=""></option>
 				<option value=1>Computer Science Application</option>
 				<option value=2>Electronics Engineering</option>
 				<option value=3>Mechanical Engineering</option>
