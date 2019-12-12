@@ -40,8 +40,9 @@ class ugcnet{
 		return ($option==0)?$this->question_link:$this->answer_link;
 	}
 	function set_html(){
-		$this->q_html = file_get_html($this->question_link);
 		$this->a_html = file_get_html($this->answer_link);
+		$this->q_html = file_get_html($this->question_link);
+		
 	}
 	function get_html($option){
 		return ($option==0)?$this->q_html:$this->a_html;
