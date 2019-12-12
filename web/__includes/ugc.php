@@ -16,12 +16,14 @@ class ugcnet{
 	private $answerd_correctly=0;
 	private $answered_wrongly;
 	private $not_answer;
+	private $answerlinks=array('/static/answers/computerscience.html');
 	
 	function __construct($question_link,$answer_link){
 		//echo 'Contructor initialized';
 		$this->question_link=$question_link;
 		//echo 'Question link set';
-		$this->answer_link=$answer_link;
+		//$this->answer_link=$answer_link;
+		$this->answer_link=$this->answerlinks[0];
 		//echo 'Answered link set';
 		self::set_html();
 		//echo 'Html set';
@@ -40,7 +42,7 @@ class ugcnet{
 		return ($option === 0)?$this->question_link:$this->answer_link;
 	}
 	function set_html(){
-		$this->a_html = file_get_html($this->answer_link);
+		$this->a_html = file_get_html(dirname($_SERVER['PHP_SELF']).$this->answer_link);
 		$this->q_html = file_get_html($this->question_link);
 		
 	}
@@ -100,7 +102,7 @@ class ugcnet{
 	function set_answer(){
 		echo "LInk=>".self::get_link(1);
 		echo 'HTML=>'.self::get_html(1);
-		$this->a_html_text=self::get_html(1)->childNodes(1)->plaintext;
+		$this->a_html_text=self::get_html(1)->plaintext;
 		$htmlX=explode('Computer Science and Applications',$this->a_html_text);
 		print_r($htmlX);
 		foreach($htmlX as $htm){
