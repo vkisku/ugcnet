@@ -98,6 +98,7 @@ class ugcnet{
 		return $this->questions;
 	}
 	function set_answer(){
+		echo "LInk=>".self::get_link(1);
 		echo 'HTML=>'.self::get_html(1);
 		$this->a_html_text=self::get_html(1)->plaintext;
 		$htmlX=explode('Computer Science and Applications',$this->a_html_text);
