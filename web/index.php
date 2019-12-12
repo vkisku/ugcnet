@@ -45,11 +45,11 @@
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 		<div class="form-group">
 		  <label for="usr">Your Assessment Link</label>
-		  <input type="link" required class="form-control" name="assessment" id="assessment">
+		  <input type="link" value="https://cdn.digialm.com//per/g28/pub/2083/touchstone/AssessmentQPHTMLMode1//2083O19256/2083O19256S5D66101/15755797078177669/JH0205201461_2083O19256S5D66101E1.html"  required class="form-control" name="assessment" id="assessment">
 		</div>
 		<div class="form-group">
 		  <label for="pwd">Answer Key link</label>
-		  <input type="link" required class="form-control" name="answer" id="link">
+		  <input type="link" value="file:///C:/Users/LENOVO/Desktop/ChallangeAnswerKey.aspx.html" required class="form-control" name="answer" id="link">
 		</div>
 		<input type="submit" class="btn btn-default">
 		</form>
