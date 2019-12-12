@@ -18,22 +18,22 @@ class ugcnet{
 	private $not_answer;
 	
 	function __construct($question_link,$answer_link){
-		echo 'Contructor initialized';
+		//echo 'Contructor initialized';
 		$this->question_link=$question_link;
-		echo 'Question link set';
+		//echo 'Question link set';
 		$this->answer_link=$answer_link;
-		echo 'Answered link set';
+		//echo 'Answered link set';
 		self::set_html();
-		echo 'Html set';
-		echo 'set question begin';
+		//echo 'Html set';
+		//echo 'set question begin';
 		self::set_question();
-		echo 'set question end';
-		echo 'set answer begin';
+		//echo 'set question end';
+		//echo 'set answer begin';
 		self::set_answer();
-		echo 'set question end';
-		echo 'calculate score';
+		//echo 'set question end';
+		//echo 'calculate score';
 		self::calculate_score();
-		echo 'calcualte socre end';
+		//echo 'calcualte socre end';
 		
 	}
 	function get_link($options){
@@ -63,6 +63,7 @@ class ugcnet{
 	function set_question(){
 		$this->q_html_text=self::get_html(0)->plaintext;
 		$htmlX=explode('</tr>',$this->q_html_text);
+		print_r($htmlX);
 		foreach($htmlX as $htm){
 			$this->questions_list[]=explode('ID',$htm);
 		}
