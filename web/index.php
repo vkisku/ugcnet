@@ -17,18 +17,7 @@
     </head>
  
     <body>
-		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-		<div class="form-group">
-		  <label for="usr">Your Assessment Link</label>
-		  <input type="link" required class="form-control" name="assessment" id="assessment">
-		</div>
-		<div class="form-group">
-		  <label for="pwd">Answer Key link</label>
-		  <input type="link" required class="form-control" name="answer" id="link">
-		</div>
-		<input type="submit" class="btn btn-default">
-		</form>
-		<div id="div">
+	<div id="div">
 		<?php
 			require('../vendor/autoload.php');
 			require('__includes/ugc.php');
@@ -40,9 +29,9 @@
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					$q_link= $_POST['assessment'];
 					$a_link= $_POST['answer'];
-					//echo $q_link;
+					echo $q_link;
 					$ugc = new ugcnet($q_link,$a_link);
-					//print_r($ugc->get_questions);
+					print_r($ugc->get_questions());
 					$score=$ugc->get_score();
 					echo 'Your Score '.$score;
 			}
@@ -53,6 +42,18 @@
 			
 		?>
 		</div>
+		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+		<div class="form-group">
+		  <label for="usr">Your Assessment Link</label>
+		  <input type="link" required class="form-control" name="assessment" id="assessment">
+		</div>
+		<div class="form-group">
+		  <label for="pwd">Answer Key link</label>
+		  <input type="link" required class="form-control" name="answer" id="link">
+		</div>
+		<input type="submit" class="btn btn-default">
+		</form>
+		
 		
 		
 		<script src="static/js/jquery-3.4.1.min.js"></script>
