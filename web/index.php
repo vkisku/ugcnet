@@ -30,7 +30,7 @@
 					$ugc = new ugcnet($q_link,$a_link);
 					//print_r($ugc->get_answers());
 					$score=$ugc->get_score();
-					echo 'Your Score '.$score;
+					echo '<h2><b><span style="color:blue;">Your Score</span> '.$score.'</b></h2>';
 			}
 			//$q_link = "https://cdn.digialm.com//per/g28/pub/2083/touchstone/AssessmentQPHTMLMode1//2083O19256/2083O19256S5D66101/15755797078177669/JH0205201461_2083O19256S5D66101E1.html";
 			//$a_link = "file:///C:/Users/LENOVO/Desktop/ChallangeAnswerKey.aspx.html";
@@ -46,8 +46,8 @@
 		</div>
 		<div class="form-group">
 			  <label for="sel1">Select Subject:</label>
-			  <select class="form-control" name="answer" id="sel1">
-				<option>---------------Select Subject--------------------</option>
+			  <select required class="form-control" name="answer" id="sel1">
+				<option value="">---------------Select Subject--------------------</option>
 				<option value=1>Computer Science Application</option>
 				<option value=2>Electronics Engineering</option>
 				<option value=3>Mechanical Engineering</option>
