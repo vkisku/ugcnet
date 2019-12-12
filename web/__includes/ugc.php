@@ -100,7 +100,7 @@ class ugcnet{
 	function set_answer(){
 		echo "LInk=>".self::get_link(1);
 		echo 'HTML=>'.self::get_html(1);
-		$this->a_html_text=self::get_html(1)->plaintext;
+		$this->a_html_text=self::get_html(1)->childNodes(1)->plaintext;
 		$htmlX=explode('Computer Science and Applications',$this->a_html_text);
 		print_r($htmlX);
 		foreach($htmlX as $htm){
