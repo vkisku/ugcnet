@@ -32,7 +32,7 @@
 			include('__includes/ugc.php');
 			//print_r($ugc->get_questions());
 			//print_r($ugc->get_answers());
-			echo 'Hello world';
+			//echo 'Hello world';
 			
 			if(isset($_POST['submit'])){
 					$q_link= $_POST['assessment'];
