@@ -18,13 +18,23 @@ class ugcnet{
 	private $not_answer;
 	
 	function __construct($question_link,$answer_link){
-		$this->question_link=$question_link;
-		$this->answer_link=$answer_link;
-		self::set_html();
-		self::set_question();
-		self::set_answer();
-		self::calculate_score();
 		echo 'Contructor initialized';
+		$this->question_link=$question_link;
+		echo 'Question link set';
+		$this->answer_link=$answer_link;
+		echo 'Answered link set';
+		self::set_html();
+		echo 'Html set';
+		echo 'set question begin'
+		self::set_question();
+		echo 'set question end';
+		echo 'set answer begin'
+		self::set_answer();
+		echo 'set question end';
+		echo 'calculate score';
+		self::calculate_score();
+		echo 'calcualte socre end';
+		
 	}
 	function get_link($options){
 		return ($option==0)?$this->question_link:$this->answer_link;
@@ -78,7 +88,7 @@ class ugcnet{
 				$this->questions[]=array($q=>$choosen);
 			}
 		}
-		echo 'questions set';
+		
 		
 		
 	}
@@ -86,6 +96,7 @@ class ugcnet{
 		return $this->questions;
 	}
 	function set_answer(){
+		
 		$this->a_html_text=self::get_html(1)->childNodes(1)->plaintext;
 		$htmlX=explode('Computer Science and Applications',$this->a_html_text);
 		//print_r($htmlX);
@@ -103,7 +114,7 @@ class ugcnet{
 		}
 		
 		//echo $this->a_html_text;
-		echo 'answers set';
+		
 	}
 	function get_answers(){
 		return $this->answers;
