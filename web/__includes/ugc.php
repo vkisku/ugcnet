@@ -1,5 +1,5 @@
 <?php 
-include('simple_html_dom.php');
+require('simple_html_dom.php');
 
 class ugcnet{
 	

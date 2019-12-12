@@ -30,7 +30,7 @@
 		</form>
 		<div id="div">
 		<?php
-			include('__includes/ugc.php');
+			require('__includes/ugc.php');
 			//print_r($ugc->get_questions());
 			//print_r($ugc->get_answers());
 			//echo 'Hello world';
