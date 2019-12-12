@@ -63,7 +63,7 @@ class ugcnet{
 	function set_question(){
 		$this->q_html_text=self::get_html(0)->plaintext;
 		$htmlX=explode('</tr>',$this->q_html_text);
-		print_r($htmlX);
+		
 		foreach($htmlX as $htm){
 			$this->questions_list[]=explode('ID',$htm);
 		}
@@ -100,7 +100,7 @@ class ugcnet{
 		
 		$this->a_html_text=self::get_html(1)->plaintext;
 		$htmlX=explode('Computer Science and Applications',$this->a_html_text);
-		//print_r($htmlX);
+		print_r($htmlX);
 		foreach($htmlX as $htm){
 			
 			$this->answers_list[]=preg_split('/\s+/', $htm);
