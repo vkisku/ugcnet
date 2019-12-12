@@ -36,7 +36,7 @@ class ugcnet{
 		//echo 'calcualte socre end';
 		
 	}
-	function get_link($options){
+	function get_link($option){
 		return ($option === 0)?$this->question_link:$this->answer_link;
 	}
 	function set_html(){
