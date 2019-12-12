@@ -37,7 +37,7 @@ class ugcnet{
 		
 	}
 	function get_link($options){
-		return ($option==0)?$this->question_link:$this->answer_link;
+		return ($option === 0)?$this->question_link:$this->answer_link;
 	}
 	function set_html(){
 		$this->a_html = file_get_html($this->answer_link);
@@ -45,11 +45,11 @@ class ugcnet{
 		
 	}
 	function get_html($option){
-		return ($option==0)?$this->q_html:$this->a_html;
+		return ($option === 0)?$this->q_html:$this->a_html;
 		
 	}
 	function get_choosen_option_id($options,$choosen){
-		if($choosen == 0)return 0;
+		if($choosen === 0)return 0;
 		
 		return $options[$choosen+1];
 	}
