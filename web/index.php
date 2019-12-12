@@ -30,6 +30,7 @@
 		</form>
 		<div id="div">
 		<?php
+			require('../vendor/autoload.php');
 			require('__includes/ugc.php');
 			require_once __DIR__ . '/__includes/ugc.php';
 			//print_r($ugc->get_questions());
