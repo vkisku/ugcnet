@@ -97,7 +97,7 @@ class ugcnet{
 		return $this->questions;
 	}
 	function set_answer(){
-		
+		echo 'HTML=>'.self::get_html(1);
 		$this->a_html_text=self::get_html(1)->plaintext;
 		$htmlX=explode('Computer Science and Applications',$this->a_html_text);
 		print_r($htmlX);
