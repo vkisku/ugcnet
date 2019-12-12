@@ -40,6 +40,7 @@
 					$a_link= $_POST['answer'];
 					echo $q_link;
 					$ugc = new ugcnet($q_link,$a_link);
+					print_r($ugc->get_questions);
 					$score=$ugc->get_score();
 					echo 'Your Score '.$score;
 			}
