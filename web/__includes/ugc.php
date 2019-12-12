@@ -1,6 +1,6 @@
 <?php 
-require('simple_html_dom.php');
-
+//require('simple_html_dom.php');
+require_once __DIR__ . '/simple_html_dom.php';
 class ugcnet{
 	
 	private $q_html;
