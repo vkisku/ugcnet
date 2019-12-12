@@ -25,10 +25,10 @@ class ugcnet{
 		echo 'Answered link set';
 		self::set_html();
 		echo 'Html set';
-		echo 'set question begin'
+		echo 'set question begin';
 		self::set_question();
 		echo 'set question end';
-		echo 'set answer begin'
+		echo 'set answer begin';
 		self::set_answer();
 		echo 'set question end';
 		echo 'calculate score';
