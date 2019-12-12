@@ -20,13 +20,13 @@
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 		<div class="form-group">
 		  <label for="usr">Your Assessment Link</label>
-		  <input type="link" class="form-control" name="assessment" id="assessment">
+		  <input type="link" required class="form-control" name="assessment" id="assessment">
 		</div>
 		<div class="form-group">
 		  <label for="pwd">Answer Key link</label>
-		  <input type="link" class="form-control" name="answer" id="link">
+		  <input type="link" required class="form-control" name="answer" id="link">
 		</div>
-		<button type="button" class="btn btn-default">Submit</button>
+		<input type="submit" class="btn btn-default">
 		<div id="div"></div>
 		<?php
 			include('__includes/ugc.php');
