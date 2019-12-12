@@ -56,7 +56,7 @@ class ugcnet{
 		foreach($htmlX as $htm){
 			$this->questions_list[]=explode('ID',$htm);
 		}
-		echo 'questions set';
+		
 		foreach($this->questions_list as $que){
 			if(sizeof($que)==6){
 				$q=trim($que[1]," ");
@@ -78,7 +78,7 @@ class ugcnet{
 				$this->questions[]=array($q=>$choosen);
 			}
 		}
-		
+		echo 'questions set';
 		
 		
 	}
@@ -103,6 +103,7 @@ class ugcnet{
 		}
 		
 		//echo $this->a_html_text;
+		echo 'answers set';
 	}
 	function get_answers(){
 		return $this->answers;
