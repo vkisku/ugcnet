@@ -33,12 +33,12 @@
 			include('__includes/ugc.php');
 			//print_r($ugc->get_questions());
 			//print_r($ugc->get_answers());
-			//echo 'Hello world';
+			echo 'Hello world';
 			
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					$q_link= $_POST['assessment'];
 					$a_link= $_POST['answer'];
-					//echo $q_link;
+					echo $q_link;
 					$ugc = new ugcnet($q_link,$a_link);
 					$score=$ugc->get_score();
 					echo 'Your Score '.$score;
