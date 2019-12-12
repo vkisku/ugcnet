@@ -42,7 +42,8 @@ class ugcnet{
 		return ($option === 0)?$this->question_link:$this->answer_link;
 	}
 	function set_html(){
-		$this->a_html = file_get_html(dirname($_SERVER['PHP_SELF']).$this->answer_link);
+		//echo 'PATH'.$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF']).$this->answer_link;
+		$this->a_html = file_get_html('http://'.$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF']).$this->answer_link);
 		$this->q_html = file_get_html($this->question_link);
 		
 	}
@@ -100,11 +101,11 @@ class ugcnet{
 		return $this->questions;
 	}
 	function set_answer(){
-		echo "LInk=>".self::get_link(1);
-		echo 'HTML=>'.self::get_html(1);
+		//echo "LInk=>".self::get_link(1);
+		//echo 'HTML=>'.self::get_html(1);
 		$this->a_html_text=self::get_html(1)->plaintext;
 		$htmlX=explode('Computer Science and Applications',$this->a_html_text);
-		print_r($htmlX);
+		//print_r($htmlX);
 		foreach($htmlX as $htm){
 			
 			$this->answers_list[]=preg_split('/\s+/', $htm);

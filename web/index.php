@@ -22,14 +22,11 @@
 			require('../vendor/autoload.php');
 			require('__includes/ugc.php');
 			require_once __DIR__ . '/__includes/ugc.php';
-			//print_r($ugc->get_questions());
-			//print_r($ugc->get_answers());
-			//echo 'Hello world';
-			
+		
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					$q_link= $_POST['assessment'];
 					$a_link= $_POST['answer'];
-					//echo $q_link;
+					
 					$ugc = new ugcnet($q_link,$a_link);
 					//print_r($ugc->get_answers());
 					$score=$ugc->get_score();
@@ -48,8 +45,14 @@
 		  <input type="link" value="https://cdn.digialm.com//per/g28/pub/2083/touchstone/AssessmentQPHTMLMode1//2083O19256/2083O19256S5D66101/15755797078177669/JH0205201461_2083O19256S5D66101E1.html"  required class="form-control" name="assessment" id="assessment">
 		</div>
 		<div class="form-group">
-		  <label for="pwd">Answer Key link</label>
-		  <input type="link" value="file:///C:/Users/LENOVO/Desktop/ChallangeAnswerKey.aspx.html" required class="form-control" name="answer" id="link">
+			  <label for="sel1">Select Subject:</label>
+			  <select class="form-control" name="answer" id="sel1">
+				<option>---------------Select Subject--------------------</option>
+				<option value=1>Computer Science Application</option>
+				<option value=2>Electronics Engineering</option>
+				<option value=3>Mechanical Engineering</option>
+				<option value=4>Chemical Engineering</option>
+			  </select>
 		</div>
 		<input type="submit" class="btn btn-default">
 		</form>
